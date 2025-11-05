@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Scanner - Home</title>
-    <link rel="icon" type="image/png" href="/kbz-sm.png">
+    
+    <!-- Favicon declarations -->
+    <link rel="icon" type="image/png" href="kbz-sm.png">
+    <link rel="shortcut icon" href="kbz-sm.png">
+    <link rel="apple-touch-icon" href="kbz-sm.png">
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,99 +66,31 @@
             color: #666;
             line-height: 1.6;
         }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .feature {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        .feature-icon {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-        .scan-area {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: center;
-            border: 2px dashed #007bff;
-        }
-        .scan-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 8px rgba(0,123,255,0.3);
-        }
-        .scan-button:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,123,255,0.4);
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="kbz-sm.png" alt="KBZ Logo">
+                <!-- Add a fallback text if image doesn't load -->
+                <img src="kbz-sm.png" alt="KBZ Logo" onerror="this.style.display='none'">
             </div>
             <h1>QR Scanner</h1>
         </div>
         
         <div class="description">
-            <p>Welcome to your QR scanning solution. Fast, reliable, and easy to use.</p>
-        </div>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Fast</h3>
-                <p>Instant QR code recognition</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure</h3>
-                <p>Your data stays private</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3>Easy</h3>
-                <p>Simple one-tap scanning</p>
-            </div>
-        </div>
-        
-        <div class="scan-area">
-            <h2>Ready to Scan?</h2>
-            <p>Point your camera at a QR code to get started</p>
-            <a href="/scan/" class="scan-button">Scan QR Code</a>
+            <p>If the favicon isn't showing, try:</p>
+            <ol style="text-align: left; display: inline-block;">
+                <li>Check if kbz-sm.png exists in the same folder</li>
+                <li>Clear browser cache (Ctrl+Shift+Delete)</li>
+                <li>Open in private/incognito window</li>
+                <li>Wait a few minutes - favicons can take time to update</li>
+            </ol>
         </div>
         
         <div class="nav-links">
             <a href="/advice/">Advice</a>
-            <a href="/history/">Scan History</a>
-            <a href="/settings/">Settings</a>
-        </div>
-        
-        <div class="description">
-            <p>Get started by choosing a section above, or scan a QR code to begin.</p>
+            <a href="/scan/">Scan Now</a>
         </div>
     </div>
 </body>
