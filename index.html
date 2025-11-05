@@ -3,131 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Scanner - Home</title>
-    
-    <!-- Favicon with cache busting -->
-    <link rel="icon" type="image/png" href="kbz-sm.png?v=2">
-    
+    <title>QR Code Scanner</title>
+    <link rel="icon" type="image/png" href="kbz-sm.png">
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        h1 {
-            color: #333;
-            margin: 0;
-        }
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .nav-links a {
-            padding: 12px 24px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .nav-links a:hover {
-            background: #0056b3;
-        }
-        .description {
             text-align: center;
-            color: #666;
-            line-height: 1.6;
         }
-        .debug-info {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
+        #reader {
+            width: 100%;
+            margin: 20px auto;
+        }
+        #result {
             margin: 20px 0;
-            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .success { color: green; }
-        .error { color: red; }
+        .advice-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="kbz-sm.png" alt="KBZ Logo" onerror="this.style.display='none'">
-            </div>
-            <h1>QR Scanner</h1>
-        </div>
+    <document>
+        <h1>QR Code Scanner</h1>
         
-        <div class="description">
-            <p><strong>Favicon cache issue detected!</strong> The browser is showing an old cached favicon.</p>
-            <p>To fix this:</p>
-            <ol style="text-align: left; display: inline-block;">
-                <li><strong>Hard refresh</strong>: Press Ctrl+F5 or Ctrl+Shift+R</li>
-                <li><strong>Clear cache</strong>: Ctrl+Shift+Delete → Clear cached images and files</li>
-                <li><strong>Open in incognito window</strong> to test</li>
-                <li>Wait 5-10 minutes for cache to expire</li>
-            </ol>
-        </div>
+        <section class="advice-section">
+            <h2>Scan QR Code</h2>
+            <div id="reader"></div>
+            <div id="result">Scan result will appear here</div>
+        </section>
 
-        <div class="debug-info">
-            <strong>Debug Info:</strong><br>
-            Favicon path: <code>kbz-sm.png?v=2</code><br>
-            Current time: <span id="current-time"></span><br>
-            <button onclick="checkFavicon()">Test Favicon Load</button>
-            <span id="favicon-status"></span>
-        </div>
-        
-        <div class="nav-links">
-            <a href="/advice/">Advice</a>
-            <a href="/scan/">Scan Now</a>
-        </div>
-    </div>
+        <section class="advice-section">
+            <h3>Tips for Scanning</h3>
+            <p>• Ensure good lighting</p>
+            <p>• Hold steady about 6-12 inches from the code</p>
+            <p>• Keep the QR code within the scanner frame</p>
+        </section>
+    </document>
 
     <script>
-        function checkFavicon() {
-            const img = new Image();
-            img.onload = function() {
-                document.getElementById('favicon-status').innerHTML = 
-                    '<span class="success"> ✅ Favicon file exists and loads correctly!</span>';
-            };
-            img.onerror = function() {
-                document.getElementById('favicon-status').innerHTML = 
-                    '<span class="error"> ❌ Favicon file not found!</span>';
-            };
-            img.src = 'kbz-sm.png';
+        function onScanSuccess(decodedText, decodedResult) {
+            document.getElementById('result').innerHTML = `
+                <strong>Scanned Result:</strong><br>
+                ${decodedText}
+            `;
         }
-        
-        // Auto-check on page load
-        window.addEventListener('load', function() {
-            checkFavicon();
-            document.getElementById('current-time').textContent = new Date().toLocaleTimeString();
-        });
+
+        function onScanFailure(error) {
+            // Handle scan failure
+        }
+
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader",
+            { fps: 10, qrbox: { width: 250, height: 250 } },
+            false
+        );
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
     </script>
 </body>
 </html>
