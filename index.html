@@ -2,53 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device=device-width, initial-scale=1.0">
     <title>QR Scanner</title>
     <link rel="icon" type="image/png" href="kbz-sm.png">
     <link href="bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <style>
-        body {
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .scanner-container {
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        #reader {
-            width: 100%;
-            margin: 20px 0;
-        }
-        #result {
-            margin: 20px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 5px;
-        }
-        .advice-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .advice-section:hover {
-            background: #e9ecef;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="scanner-container">
+    <div class="container mt-4">
+        <div class="text-center">
             <h1>QR Code Scanner</h1>
-            <div id="reader"></div>
-            <div id="result">Scan result will appear here</div>
+            <div id="reader" class="my-4"></div>
+            <div id="result" class="alert alert-info">Scan result will appear here</div>
             
-            <div class="advice-section" onclick="window.location.href='advice/'">
-                <h3>Click for Advice & Tips →</h3>
-                <p class="text-muted">Get helpful scanning tips and information</p>
+            <div class="card mt-4" onclick="window.location.href='advice/'" style="cursor: pointer;">
+                <div class="card-body">
+                    <h5 class="card-title">Click for Advice →</h5>
+                    <p class="card-text">Get scanning tips and information</p>
+                </div>
             </div>
         </div>
     </div>
@@ -62,7 +33,7 @@
         }
 
         function onScanFailure(error) {
-            // Scan failure handling
+            // Handle scan failure
         }
 
         let html5QrcodeScanner = new Html5QrcodeScanner(
