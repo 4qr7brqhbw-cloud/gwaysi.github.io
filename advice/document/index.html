@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KBZ Bank - Strength of Myanmar</title>
-    <link rel="icon" type="image/x-icon" href="kbz-sm.png">
+
+    <!-- ✅ FIXED FAVICON PATH -->
+    <link rel="icon" type="image/png" href="../../kbz-sm.png">
+    <link rel="shortcut icon" href="../../kbz-sm.png">
+
     <link rel="stylesheet" href="bootstrap.min.css">
+
     <style>
         body {
             background-color: #0057ab !important;
@@ -69,14 +74,17 @@
             <table class="table">
                 <tr class="receipt-header">
                     <td class="text-start border-0 py-2 px-0">
-                        <img src="/kbz-logo.png" alt="KBZ Bank Logo" class="kbz-logo" />
+                        <!-- ✅ FIXED LOGO PATH -->
+                        <img src="../../kbz-logo.png" alt="KBZ Bank Logo" class="kbz-logo" />
                     </td>
                     <td class="border-0 text-end align-bottom py-2 px-0">
                         <span class="h6 fw-bold">BALANCE CERTIFICATE</span>
                     </td>
                 </tr>
                 <tr>
-                    <th class="text-center py-4 border-0" colspan="2"><span class="h6 fw-bold">DETAILS OF THE ISSUING CERTIFICATE</span></th>
+                    <th class="text-center py-4 border-0" colspan="2">
+                        <span class="h6 fw-bold">DETAILS OF THE ISSUING CERTIFICATE</span>
+                    </th>
                 </tr>
                 <tr>
                     <td class="lbl">Bank:</td>
@@ -84,8 +92,7 @@
                 </tr>
                 <tr>
                     <td class="lbl">Account Holder Name:</td>
-                    <td class="text-end"><span class="value fw-bold">U SOE PAING OO</span>
-                    </td>
+                    <td class="text-end"><span class="value fw-bold">U SOE PAING OO</span></td>
                 </tr>
                 <tr>
                     <td class="lbl">Account Number:</td>
@@ -93,8 +100,7 @@
                 </tr>
                 <tr>
                     <td class="lbl">Account Type:</td>
-                    <td class="text-end"><span class="value fw-bold">Call Deposit Account</span>
-                    </td>
+                    <td class="text-end"><span class="value fw-bold">Call Deposit Account</span></td>
                 </tr>
                 <tr>
                     <td class="lbl">NRC/Passport No.:</td>
@@ -102,25 +108,19 @@
                 </tr>
                 <tr>
                     <td class="lbl">Address:</td>
-                    <td class="text-end"><span class="value fw-bold">NO(1149)B,SAYAR THEIN STREET (1)QTR HMAWBI YANGON</span>
-                    </td>
+                    <td class="text-end"><span class="value fw-bold">NO(1149)B, SAYAR THEIN STREET (1) QTR, HMAWBI, YANGON</span></td>
                 </tr>
                 <tr>
                     <td class="lbl">Issuing Branch:</td>
-                    <td class="text-end"><span class="value fw-bold">HMAWBI BRANCH (324)</span>
-                    </td>
+                    <td class="text-end"><span class="value fw-bold">HMAWBI BRANCH (324)</span></td>
                 </tr>
-
                 <tr>
                     <td class="lbl">Issuing Date:</td>
-                    <td class="text-end"><span class="value fw-bold">23 Oct 2025</span>
-                    </td>
+                    <td class="text-end"><span class="value fw-bold">23 Oct 2025</span></td>
                 </tr>
-
                 <tr>
                     <td class="lbl">Date of Balance:</td>
-                    <td class="text-end"><span class="value fw-bold">23 Oct 2025</span>
-                    </td>
+                    <td class="text-end"><span class="value fw-bold">23 Oct 2025</span></td>
                 </tr>
                 <tr>
                     <td class="lbl">Balance in Figures:</td>
@@ -132,16 +132,22 @@
                 </tr>
                 <tr>
                     <td class="lbl border-0 pt-4 text-center" colspan="2">
-                        <span>This Balance Certificate is valid until </span> <span>22 January 2026</span><span>.</span>
+                        <span>This Balance Certificate is valid until </span>
+                        <span>22 January 2026.</span>
                     </td>
                 </tr>
                 <tr class="receipt-footer">
                     <td colspan="2" class="text-center py-3 border-0">
-                        <span class="d-block">Thank You for banking with Kanbawza Bank Limited.</span>
-                        <span class="d-block"> No.615/1, Pyay Road, Kamayut Township,Yangon,Myanmar</span>
-                        <span class="d-block">Call Center:<a href="tel:+959951018555" class="text-decoration-none">+95 9 951018555</a></span>
-                        <span class="d-block">Email: <a href="mailto:customer_service@kbzbank.com" class="text-decoration-none">customer_service@kbzbank.com</a></span>
-                        <span> This is a secure verification web portal provided by KBZ Bank.<br>
+                        <span class="d-block">Thank you for banking with Kanbawza Bank Limited.</span>
+                        <span class="d-block">No.615/1, Pyay Road, Kamayut Township, Yangon, Myanmar</span>
+                        <span class="d-block">Call Center:
+                            <a href="tel:+959951018555" class="text-decoration-none">+95 9 951018555</a>
+                        </span>
+                        <span class="d-block">Email:
+                            <a href="mailto:customer_service@kbzbank.com" class="text-decoration-none">customer_service@kbzbank.com</a>
+                        </span>
+                        <span>
+                            This is a secure verification web portal provided by KBZ Bank.<br>
                             If you suspect fraud or tampering, please contact us immediately.
                         </span>
                     </td>
@@ -149,15 +155,18 @@
             </table>
         </div>
     </div>
+
+    <script id="f5_cspm">
+        (function () {
+            var f5_cspm = {
+                // placeholder for security monitoring logic
+                go: function () {
+                    console.log("CSPM check initialized");
+                }
+            };
+            f5_cspm.go();
+        }());
+    </script>
 </body>
 
 </html>
-<script id="f5_cspm">
-    // Your existing JavaScript remains the same
-    (function() {
-        var f5_cspm = {
-            // ... your existing JavaScript code ...
-        }
-        f5_cspm.go();
-    }());
-</script>
