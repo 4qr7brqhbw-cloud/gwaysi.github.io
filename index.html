@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Scanner - Home</title>
     
-    <!-- Improved Favicon declarations -->
-    <link rel="icon" type="image/x-icon" href="kbz-sm.png">
+    <!-- Favicon using kbz-sm.png -->
     <link rel="icon" type="image/png" href="kbz-sm.png">
-    <link rel="shortcut icon" href="kbz-sm.png">
-    <link rel="apple-touch-icon" href="kbz-sm.png">
     
     <style>
         body {
@@ -74,6 +71,8 @@
             margin: 20px 0;
             font-size: 14px;
         }
+        .success { color: green; }
+        .error { color: red; }
     </style>
 </head>
 <body>
@@ -115,11 +114,11 @@
             const img = new Image();
             img.onload = function() {
                 document.getElementById('favicon-status').innerHTML = 
-                    ' ✅ Favicon loaded successfully!';
+                    '<span class="success"> ✅ Favicon loaded successfully!</span>';
             };
             img.onerror = function() {
                 document.getElementById('favicon-status').innerHTML = 
-                    ' ❌ Favicon not found at: ' + window.location.href + 'kbz-sm.png';
+                    '<span class="error"> ❌ Favicon not found at: kbz-sm.png</span>';
             };
             img.src = 'kbz-sm.png';
         }
