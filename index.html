@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Scanner - Home</title>
     
-    <!-- Favicon declarations -->
+    <!-- Improved Favicon declarations -->
     <link rel="icon" type="image/x-icon" href="kbz-sm.png">
+    <link rel="icon" type="image/png" href="kbz-sm.png">
     <link rel="shortcut icon" href="kbz-sm.png">
     <link rel="apple-touch-icon" href="kbz-sm.png">
     
@@ -66,13 +67,19 @@
             color: #666;
             line-height: 1.6;
         }
+        .debug-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">
-                <!-- Add a fallback text if image doesn't load -->
                 <img src="kbz-sm.png" alt="KBZ Logo" onerror="this.style.display='none'">
             </div>
             <h1>QR Scanner</h1>
@@ -81,11 +88,20 @@
         <div class="description">
             <p>If the favicon isn't showing, try:</p>
             <ol style="text-align: left; display: inline-block;">
-                <li>Check if kbz-sm.png exists in the same folder</li>
+                <li>Check if <code>kbz-sm.png</code> exists in the same folder</li>
                 <li>Clear browser cache (Ctrl+Shift+Delete)</li>
                 <li>Open in private/incognito window</li>
                 <li>Wait a few minutes - favicons can take time to update</li>
+                <li>Try accessing your site via <code>http://localhost</code> instead of <code>file://</code></li>
             </ol>
+        </div>
+
+        <!-- Debug section (remove in production) -->
+        <div class="debug-info">
+            <strong>Debug Info:</strong><br>
+            Favicon path: <code>kbz-sm.png</code><br>
+            <button onclick="checkFavicon()">Test Favicon Load</button>
+            <span id="favicon-status"></span>
         </div>
         
         <div class="nav-links">
@@ -93,5 +109,23 @@
             <a href="/scan/">Scan Now</a>
         </div>
     </div>
+
+    <script>
+        function checkFavicon() {
+            const img = new Image();
+            img.onload = function() {
+                document.getElementById('favicon-status').innerHTML = 
+                    ' ✅ Favicon loaded successfully!';
+            };
+            img.onerror = function() {
+                document.getElementById('favicon-status').innerHTML = 
+                    ' ❌ Favicon not found at: ' + window.location.href + 'kbz-sm.png';
+            };
+            img.src = 'kbz-sm.png';
+        }
+        
+        // Auto-check on page load
+        window.addEventListener('load', checkFavicon);
+    </script>
 </body>
 </html>
